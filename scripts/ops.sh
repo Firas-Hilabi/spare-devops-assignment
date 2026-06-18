@@ -113,7 +113,16 @@ cmd_smoke() {
 }
 
 usage() {
-  sed -n '2,12p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'
+  cat >&2 <<'EOF'
+ops.sh — operator helper for the local Notifications API stack.
+
+Usage:
+  ./scripts/ops.sh up       # build + start the stack (idempotent)
+  ./scripts/ops.sh down     # stop the stack (data volume kept)
+  ./scripts/ops.sh status   # show container + API health
+  ./scripts/ops.sh logs     # tail API logs
+  ./scripts/ops.sh smoke    # run basic API checks
+EOF
   exit 1
 }
 
