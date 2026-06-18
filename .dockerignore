@@ -1,0 +1,16 @@
+# Keep the build context small and the image clean.
+node_modules
+npm-debug.log
+.git
+.github
+.gitignore
+.env
+*.env
+!.env.example
+*.log
+.DS_Store
+README.md
+Makefile
+scripts
+docker-compose*.yml
+render.yaml

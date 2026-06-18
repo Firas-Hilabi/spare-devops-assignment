@@ -1,0 +1,28 @@
+# Render Blueprint — one-click deploy of the API + managed PostgreSQL.
+# Render injects $PORT automatically; the app already reads it.
+services:
+  - type: web
+    name: notifications-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      # Wire DB connection straight from the managed database below.
+      - key: DB_HOST
+        fromDatabase: { name: notifications-db, property: host }
+      - key: DB_PORT
+        fromDatabase: { name: notifications-db, property: port }
+      - key: DB_NAME
+        fromDatabase: { name: notifications-db, property: database }
+      - key: DB_USER
+        fromDatabase: { name: notifications-db, property: user }
+      - key: DB_PASSWORD
+        fromDatabase: { name: notifications-db, property: password }
+
+databases:
+  - name: notifications-db
+    plan: free
+    databaseName: notifications
+    user: app
