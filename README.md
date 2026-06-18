@@ -1,5 +1,7 @@
 # Notifications API — DevOps Assignment
 
+[![CI/CD](https://github.com/Firas-Hilabi/spare-devops-assignment/actions/workflows/ci.yml/badge.svg)](https://github.com/Firas-Hilabi/spare-devops-assignment/actions/workflows/ci.yml)
+
 A small Node.js + Express + PostgreSQL REST API, made **runnable, repeatable, and
 deployable** with Docker, Docker Compose, GitHub Actions, and a Bash operations script.
 
