@@ -131,6 +131,11 @@ Workflow: [`.github/workflows/ci.yml`](.github/workflows/ci.yml)
 A [`render.yaml`](render.yaml) Blueprint deploys the API as a Docker web service plus a
 managed PostgreSQL instance — both on Render's free tier.
 
+**Live demo:** https://notifications-api-gmbu.onrender.com/health
+
+> Free Render web services sleep after ~15 min idle; the first request after that may take
+> ~30–60s to wake the container.
+
 **Steps**
 1. Push this repo to GitHub.
 2. In Render: **New → Blueprint**, select the repo. Render reads `render.yaml`.
